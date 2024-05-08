@@ -1,0 +1,68 @@
+﻿@model ProyectoTiendaZapatos.Models.Producto
+
+@{
+    ViewData["Title"] = "Crear Producto";
+}
+
+<br />
+<br />
+<h3 class="text-center">Crear un nuevo Producto</h3>
+<form method="POST" asp-action="Create">
+    <div class="row px-2 offset-1 Border">
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <div class="col-10 offset-1 mt4">
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Nombre"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="Nombre" class="form-control" placeholder="Ingresa el Nombre del Producto" />
+                    <span asp-validation-for="Nombre" class="text-danger"></span>
+                </div>
+            </div>
+            <br />
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Marca"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="Marca" class="form-control" placeholder="Ingresa la Marca del Producto" />
+                    <span asp-validation-for="Marca" class="text-danger"></span>
+                </div>
+            </div>
+            <br />
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Precio"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="Precio" type="number" step="0.01" class="form-control" placeholder="Ingresa el Precio" />
+                    <span asp-validation-for="Precio" class="text-danger"></span>
+                </div>
+            </div>
+            <br />
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="CategoriaId"></label>
+                </div>
+                <div class="col-8">
+                    <select asp-for="CategoriaId" asp-items="ViewBag.Categorias" class="form-control">
+                        <option value="">Seleccione una Categoría</option>
+                    </select>
+                    <span asp-validation-for="CategoriaId" class="text-danger"></span>
+                </div>
+            </div>
+            <br />
+            <div class="form-group row">
+                <div class="col-8 offset-4">
+                    <input type="submit" value="Crear" class="btn btn-primary" />
+                    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
